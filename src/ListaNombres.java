@@ -7,7 +7,7 @@ public class ListaNombres {
         boolean seguir = true;
         List<String>nombres = new ArrayList<>();
         List<Integer> posicion = new ArrayList<>();
-        int log = 0;
+
         do {
             System.out.println("Introduce un nombre: (fin para salir)");
             String nombre = sc.nextLine();
