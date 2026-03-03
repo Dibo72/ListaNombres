@@ -1,15 +1,38 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class ListaNombres {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        boolean seguir = true;
+        List<String>nombres = new ArrayList<>();
+        List<Integer> posicion = new ArrayList<>();
+        int log = 0;
+        do {
+            System.out.println("Introduce un nombre: (fin para salir)");
+            String nombre = sc.nextLine();
+            if (nombre.equals("fin")) {
+                seguir = false;
+            }else{
+                nombres.add(nombre);
+            }
+        }while (seguir);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+
+        System.out.println("Introduce un nombre a buscar:");
+        String nombre = sc.nextLine();
+
+        for (int i=0; i<nombres.size(); i++) {
+            if (nombres.get(i).equals(nombre)) {
+                posicion.add(i+1);
+            }
+        }
+
+        if (!posicion.isEmpty()) {
+            System.out.println("Nombre encontrado en las posiciones:");
+            System.out.println(posicion);
+        }else{
+            System.out.println("Nombre no encontrado");
         }
     }
 }
